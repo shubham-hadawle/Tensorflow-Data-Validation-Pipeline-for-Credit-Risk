@@ -40,6 +40,43 @@ An end-to-end machine learning data validation project building upon **TensorFlo
 ---
 
 ## Project Architecture
+
++-----------------------------------+
+                  |   Incoming Production Dataset    |
+                  +-----------------+-----------------+
+                                    |
+                                    v
+                  +-----------------------------------+
+                  |   TFDV Statistics Generator       |
+                  |   (generate_statistics_from_df)   |
+                  +-----------------+-----------------+
+                                    |
+                    +---------------+---------------+
+                    |                               |
+                    v                               v
+         +--------------------+           +-------------------+
+         | Schema Validation  |           | Drift Monitoring  |
+         | (validate_stats)   |           | (L-infinity norm) |
+         +---------+----------+           +---------+---------+
+                   |                                |
+                   +----------------+---------------+
+                                    |
+                                    v
+                  +-----------------------------------+
+                  |     Automated Validation Gate     |
+                  +-----------------+-----------------+
+                                    |
+             +----------------------+----------------------+
+             |                      |                      |
+         [PASSED]            [WARNING_DRIFT]           [BLOCKED]
+             |                      |                      |
+             v                      v                      v
+    +----------------+     +----------------+     +----------------+
+    | Safe Model     |     | Flag for Human |     | Halt Inference |
+    | Inference &    |     | Review & Trigger|    | & Return Schema|
+    | Risk Tiering   |     | Retraining Run |     | Error Payload  |
+    +----------------+     +----------------+     +----------------+
+
 ---
 
 ## Dependencies & Environment Setup
