@@ -1,0 +1,86 @@
+# Proto: tensorflow_metadata.proto.v0.Schema
+
+default_environment: "TRAINING"
+default_environment: "SERVING"
+
+feature {
+  name: "customer_age"
+  type: INT
+}
+
+feature {
+  name: "annual_income"
+  type: FLOAT
+}
+
+feature {
+  name: "credit_score"
+  type: INT
+}
+
+feature {
+  name: "loan_amount"
+  type: FLOAT
+}
+
+feature {
+  name: "loan_intent"
+  type: STRING
+  domain_info {
+    min_domain_mass: 0.90
+    value: "DEBTCONSOLIDATION"
+    value: "EDUCATION"
+    value: "HOMEIMPROVEMENT"
+    value: "MEDICAL"
+    value: "PERSONAL"
+    value: "VENTURE"
+  }
+  drift_comparator { infinity_norm { threshold: 0.05 } }
+}
+
+feature {
+  name: "employment_length_years"
+  type: FLOAT
+  presence { min_fraction: 0.70 }
+}
+
+feature {
+  name: "debt_to_income_ratio"
+  type: FLOAT
+}
+
+feature {
+  name: "home_ownership"
+  type: STRING
+  domain_info {
+    value: "MORTGAGE"
+    value: "OTHER"
+    value: "OWN"
+    value: "RENT"
+  }
+}
+
+feature {
+  name: "account_tenure_months"
+  type: INT
+}
+
+feature {
+  name: "historical_default"
+  type: STRING
+  domain_info {
+    value: "N"
+    value: "Y"
+  }
+}
+
+feature {
+  name: "risk_score_external"
+  type: INT
+}
+
+feature {
+  name: "is_default"
+  type: INT
+  not_in_environment: "SERVING"
+}

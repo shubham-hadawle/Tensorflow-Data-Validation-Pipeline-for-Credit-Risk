@@ -1,0 +1,1 @@
+# MLOps Lab 1: TFDV Data Validation & Automated Gatekeeper\n\nComplete implementation of the modified TFDV lab using FinTech Credit Risk assessment.\n
