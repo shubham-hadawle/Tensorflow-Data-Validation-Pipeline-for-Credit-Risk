@@ -41,8 +41,8 @@ An end-to-end machine learning data validation project building upon **TensorFlo
 
 ## Project Architecture
 
-+-----------------------------------+
-                  |   Incoming Production Dataset    |
+                  +-----------------------------------+
+                  |   Incoming Production Dataset     |
                   +-----------------+-----------------+
                                     |
                                     v
