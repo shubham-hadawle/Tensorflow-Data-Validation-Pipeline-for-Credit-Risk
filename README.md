@@ -25,6 +25,7 @@ An end-to-end machine learning data validation project building upon **TensorFlo
 
 ## Key Modifications from the Original Lab
 
+| Dimensions | Project Includes |
 | :--- | :--- |
 | **Dataset Domain** | **FinTech Credit Risk & Loan Default Assessment** (Multi-variate continuous financial metrics, credit ratings, loan intent categories) |
 | **Data Splits** | **Train (10,000 clean baseline), Eval (2,500 with injected anomalies), Serving (2,500 unlabelled), Drifted Batch (3,000 macroeconomic downturn)** |
